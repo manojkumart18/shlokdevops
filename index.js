@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
- 
+const bodyParser = require('body-parser');
+const https = require('https');
+
+app.use(bodyParser.json());
+
 // Getting Request
-app.get('/releaseTrigger', (req, res) => {
+app.post('/releaseTrigger', (req, res) => {
     const data = JSON.stringify({
         text: req.body.message.text
     });
